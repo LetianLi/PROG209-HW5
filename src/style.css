@@ -1,0 +1,26 @@
+h1 {
+    color: rgb(204, 182, 36);
+}
+
+div {
+    font-family: 'Poppins';
+}
+
+.synopsis {
+    font-size: 22px;
+    font-weight: bold;
+    color:  rgb(240, 182, 117);
+}
+
+#getStartedBtn {
+    color:  rgb(230, 225, 221);
+}
+
+input, .ui-select div.ui-btn {
+    background-color: rgb(88, 89, 89) !important;
+}
+
+.ui-checkbox {
+    display: inline-block !important;
+    inline-size: 32px !important
+}
