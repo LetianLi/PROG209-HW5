@@ -24,3 +24,27 @@ input, .ui-select div.ui-btn {
     display: inline-block !important;
     inline-size: 32px !important
 }
+
+
+#table {
+    width: 100%;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #56563f;
+    border-radius: 10px;
+  }
+  
+  /* Style the table headers */
+  #table th {
+    text-align: left;
+    background-color: #4a4b3b;
+    padding: 5px;
+  }
+  
+  /* Style the table rows */
+  #table tr {
+    border-bottom: 1px solid #ddd;
+  }
+
+
+  
