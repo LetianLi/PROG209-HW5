@@ -74,13 +74,13 @@
                 </select>
                 Enter priority: <br>
                 <select name="select-priority" id="taskPriorityInput" data-theme="b">
-                    <option value="Low" id="TPLow">Low</option>
-                    <option value="Medium" id="TPMed">Medium</option>
-                    <option value="High" id="TPHigh">High</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
                 </select>
 
                 <br>
-                <button id="addTaskBtn" data-inline="true" onclick="createArrayObj()">Click To Add Task</button>
+                <button id="addTaskBtn" data-inline="true">Click To Add Task</button>
             </div>
             <div id="arrayConfirm"></div>
         </div>
@@ -113,9 +113,6 @@
                 <div id="table">
                     Uh oh, you don't have anything in your task list yet. Try adding one
                 </div>
-
-                <button id="viewTasksBtn" data-inline="true" onclick="displayTasks()">View Tasks</button>
-
 
                 <!-- TODO: Add code to toggle visibility by setting btn.style="display: none" or "display: block" -->
                 <button id="getStartedBtn2" data-inline="true" style="display: block">Get started with a task</button>
