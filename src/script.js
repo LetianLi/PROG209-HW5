@@ -38,42 +38,37 @@ function goToAddPage() {
     window.location = "#AddPage";
 }
 
-const addTaskButton = document.getElementById("addTaskBtn");
-const taskNameInput = document.getElementById("taskNameInput");
-const alertMessage = document.getElementById("alert_message");
-
 function createArrayObj() {
+    let taskNameInput = document.getElementById("taskNameInput");
+
     let taskName = document.getElementById("taskNameInput").value;
     let taskType = document.getElementById("taskTypeInput").value;
     let taskPriority = document.getElementById("taskPriorityInput").value;
 
     if (taskName === ""){
+        document.getElementById("alert_message").innerHTML = "Please enter a task name.";
         taskNameInput.focus();
-        alertMessage.innerHTML = "Please enter a task name.";
         return;
     } else {
-    document.getElementById("alert_message").innerHTML = "";
-    
-    //task array
-    let task = new Task(taskName, taskType, taskPriority);
-    tasks.push(task);
+        document.getElementById("alert_message").innerHTML = "";
+        
+        //push to task array
+        let task = new Task(taskName, taskType, taskPriority);
+        tasks.push(task);
 
-    /*displays task added successfully so I know it actually
-     ran the function and added to the array properly.*/
-    let counter = document.getElementById("arrayConfirm");
-    counter.innerHTML = "Task added successfully!";
-    //timeout for task added successful text (1.5 seconds)
-    setTimeout(() => {
-        counter.innerHTML = '';  
-    }, 1800);
+        /*displays task added successfully so I know it actually
+        ran the function and added to the array properly.*/
+        let successMessage = document.getElementById("successMessage");
+        successMessage.innerHTML = "Task added successfully!";
+        //timeout for sucess message (2.0 seconds)
+        setTimeout(() => {
+            successMessage.innerHTML = '';  
+        }, 2000);
+
+        taskNameInput.value = "";
+        taskNameInput.focus();
     }
 }
-
-addTaskButton.addEventListener("click", function() {
-    setTimeout(() => {
-        taskNameInput.value = "";
-    }, 100);
-})
 
 function displayTasks() {
     if (tasks.length > 0) {
@@ -131,11 +126,11 @@ function processTaskList() {
 function createTaskTable(processedTaskList) {
     let table = document.getElementById("table");
 
-    //to Clears the table
+    //Start by clearing the table
     table.innerHTML = "";
 
-    //For Creating the header rows
-    let headerRow = document.createElement("tr"); //tablr row
+    //For creating the header rows
+    let headerRow = document.createElement("tr"); //table row
 
     //for header of name col
     let nameHeader = document.createElement("th"); //table header

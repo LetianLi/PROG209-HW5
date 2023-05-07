@@ -59,7 +59,7 @@ input,
 
 @keyframes jiggle {
     0% {
-        transform: translateX(0);
+        transform: translateX(0px);
     }
     25% {
         transform: translateX(20px); 
@@ -75,7 +75,7 @@ input,
     }
   }
 
-#arrayConfirm {
+#successMessage {
     display: inline-block;
     vertical-align: middle;
     margin-left: 10px;
