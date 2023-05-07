@@ -38,10 +38,23 @@ function goToAddPage() {
     window.location = "#AddPage";
 }
 
+const addTaskButton = document.getElementById("addTaskBtn");
+const taskNameInput = document.getElementById("taskNameInput");
+
+const alertMessage = document.getElementById("alert_message");
+
 function createArrayObj() {
     let taskName = document.getElementById("taskNameInput").value;
     let taskType = document.getElementById("taskTypeInput").value;
     let taskPriority = document.getElementById("taskPriorityInput").value;
+
+    if (taskName === ""){
+        taskNameInput.focus();
+        document.getElementById("alert_message").innerHTML = "Please enter a task name.";
+        return;
+    } else {
+    document.getElementById("alert_message").innerHTML = "";
+    
     //task array
     let task = new Task(taskName, taskType, taskPriority);
     tasks.push(task);
@@ -50,10 +63,11 @@ function createArrayObj() {
      ran the function and added to the array properly.*/
     let counter = document.getElementById("arrayConfirm");
     counter.innerHTML = "Task added successfully!";
-    //sets text to timeout after 1.5 seconds
+    //timeout for task added successful text (1.5 seconds)
     setTimeout(() => {
         counter.innerHTML = '';
     }, 1500);
+    }
 }
 
 function displayTasks() {
