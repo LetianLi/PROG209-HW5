@@ -120,24 +120,24 @@
                 <!-- Sorting options -->
                 <br><br><hr>
                 Sort by: 
-                <select name="select-type" id="taskTypeInput" data-theme="b" data-inline="true">
-                    <option value="Name">Name</option>
-                    <option value="Type">Type</option>
-                    <option value="Priority">Priority</option>
+                <select name="select-type" id="sortSetting" class="regenDisplay" data-theme="b" data-inline="true">
+                    <option value="name">Name</option>
+                    <option value="type">Type</option>
+                    <option value="priorityNumber">Priority</option>
                 </select>
-                <input type="checkbox" id="sortAscendingCheckBox" checked="true"> Ascending
+                <input type="checkbox" id="sortAscendingCheckBox" class="regenDisplay" checked="true"> Ascending
 
                 <!-- Filtering options -->
                 <br><br>
                 Filter by type:
-                <input type="checkbox" class="filterSetting" value="Work"> Work,
-                <input type="checkbox" class="filterSetting" value="School"> School,
-                <input type="checkbox" class="filterSetting" value="Life"> Life
+                <input type="checkbox" class="filterTypeSetting regenDisplay" value="Work"> Work,
+                <input type="checkbox" class="filterTypeSetting regenDisplay" value="School"> School,
+                <input type="checkbox" class="filterTypeSetting regenDisplay" value="Life"> Life
                 <br><br>
                 Filter by priority:
-                <input type="checkbox" class="filterSetting" value="Low"> Low,
-                <input type="checkbox" class="filterSetting" value="Medium"> Medium,
-                <input type="checkbox" class="filterSetting" value="High"> High
+                <input type="checkbox" class="filterPrioritySetting regenDisplay" value="Low"> Low,
+                <input type="checkbox" class="filterPrioritySetting regenDisplay" value="Medium"> Medium,
+                <input type="checkbox" class="filterPrioritySetting regenDisplay" value="High"> High
                 
 
             </div>
