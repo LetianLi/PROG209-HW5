@@ -65,7 +65,7 @@
                 <h2 class="synopsis">Add a task</h2>
 
                 Enter task name: <br>
-                <input type="text" value="" id="taskNameInput"/>
+                <input type="text" value="" id="taskNameInput" />
                 Enter task type: <br>
                 <select name="select-type" id="taskTypeInput" data-theme="b">
                     <option value="Work">Work</option>
@@ -78,7 +78,7 @@
                     <option value="Medium" id="TPMed">Medium</option>
                     <option value="High" id="TPHigh">High</option>
                 </select>
-                
+
                 <br>
                 <button id="addTaskBtn" data-inline="true" onclick="createArrayObj()">Click To Add Task</button>
             </div>
@@ -109,14 +109,14 @@
         <div data-role="content">
             <div>
                 <h2 class="synopsis">See your task list</h2>
-                
+
                 <div id="table">
                     Uh oh, you don't have anything in your task list yet. Try adding one
                 </div>
 
                 <button id="viewTasksBtn" data-inline="true" onclick="displayTasks()">View Tasks</button>
-                
-                
+
+
                 <!-- TODO: Add code to toggle visibility by setting btn.style="display: none" or "display: block" -->
                 <button id="getStartedBtn2" data-inline="true" style="display: block">Get started with a task</button>
 
@@ -132,7 +132,7 @@
 
                 <!-- Filtering options -->
                 <br><br>
-                Filter by type: 
+                Filter by type:
                 <input type="checkbox" class="filterSetting" value="Work"> Work,
                 <input type="checkbox" class="filterSetting" value="School"> School,
                 <input type="checkbox" class="filterSetting" value="Life"> Life
