@@ -50,6 +50,10 @@ function createArrayObj() {
      ran the function and added to the array properly.*/
     let counter = document.getElementById("arrayConfirm");
     counter.innerHTML = "Task added successfully!";
+    //sets text to timeout after 1.5 seconds
+    setTimeout(() => {
+        counter.innerHTML = '';
+    }, 1500);
 }
 
 function displayTasks() {
