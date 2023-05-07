@@ -40,7 +40,6 @@ function goToAddPage() {
 
 const addTaskButton = document.getElementById("addTaskBtn");
 const taskNameInput = document.getElementById("taskNameInput");
-
 const alertMessage = document.getElementById("alert_message");
 
 function createArrayObj() {
@@ -50,7 +49,7 @@ function createArrayObj() {
 
     if (taskName === ""){
         taskNameInput.focus();
-        document.getElementById("alert_message").innerHTML = "Please enter a task name.";
+        alertMessage.innerHTML = "Please enter a task name.";
         return;
     } else {
     document.getElementById("alert_message").innerHTML = "";
@@ -65,10 +64,16 @@ function createArrayObj() {
     counter.innerHTML = "Task added successfully!";
     //timeout for task added successful text (1.5 seconds)
     setTimeout(() => {
-        counter.innerHTML = '';
-    }, 1500);
+        counter.innerHTML = '';  
+    }, 1800);
     }
 }
+
+addTaskButton.addEventListener("click", function() {
+    setTimeout(() => {
+        taskNameInput.value = "";
+    }, 100);
+})
 
 function displayTasks() {
     if (tasks.length > 0) {
