@@ -22,7 +22,6 @@ tasks.push(new Task("Do Homework", "School", "Medium"));
 tasks.push(new Task("Review class notes", "School", "Medium"));
 
 document.addEventListener("DOMContentLoaded", function (event) {
-    console.log("DOM loaded");
     document.getElementById("getStartedBtn").addEventListener("click", goToAddPage);
     document.getElementById("getStartedBtn2").addEventListener("click", goToAddPage);
     document.getElementById("addTaskBtn").addEventListener("click", createArrayObj);
@@ -102,9 +101,6 @@ function processTaskList() {
         let passesTypeCheck = allowedTypes.length === 0 || allowedTypes.includes(task.type);
         let passesPriorityCheck = allowedPriorities.length === 0 || allowedPriorities.includes(task.priority);
 
-        console.log(task);
-        console.log("Passes type: " + passesTypeCheck);
-        console.log("Passes priority: " + passesPriorityCheck);
         return passesTypeCheck && passesPriorityCheck;
     });
 
