@@ -5,6 +5,7 @@ let Task = function(taskName, taskType, taskPriority) {
     this.type = taskType;
     this.priority = taskPriority;
     this.done = false;
+    this.timeAdded = Date.now();
 
     if (this.priority === "High") this.priorityNumber = 1;
     else if (this.priority === "Medium") this.priorityNumber = 2;
@@ -14,11 +15,11 @@ let Task = function(taskName, taskType, taskPriority) {
 // prepush tasks
 tasks.push(new Task("Apply for social security", "Life", "High"));
 tasks.push(new Task("Buy groceries", "Life", "Low"));
-tasks.push(new Task("Check for response from support ticket", "Work", "High"));
+tasks.push(new Task("Talk to coworker", "Work", "Low"));
 tasks.push(new Task("Complain about pay", "Work", "Low"));
+tasks.push(new Task("Check for response from support ticket", "Work", "High"));
 tasks.push(new Task("Do Homework", "School", "Medium"));
 tasks.push(new Task("Review class notes", "School", "Medium"));
-tasks.push(new Task("Talk to coworker", "Work", "Low"));
 
 document.addEventListener("DOMContentLoaded", function (event) {
     console.log("DOM loaded");
