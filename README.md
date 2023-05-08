@@ -1,5 +1,7 @@
 # PROG209-HW5
 
+A task manager made in collaboration with Nicholas Jones.
+
 ## Instructions:
 
 Build a 3-page jQuery Mobile App
