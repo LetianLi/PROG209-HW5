@@ -4,6 +4,7 @@ let Task = function(taskName, taskType, taskPriority) {
     this.name = taskName;
     this.type = taskType;
     this.priority = taskPriority;
+    this.taskDone = false;
 
     if (this.priority === "High") this.priorityNumber = 1;
     else if (this.priority === "Medium") this.priorityNumber = 2;
@@ -157,7 +158,6 @@ function createTaskTable(processedTaskList) {
     doneHeader.innerHTML = "Done";
     headerRow.appendChild(doneHeader);
 
-
     table.appendChild(headerRow);
 
     //setting up rows for each task item in array
@@ -179,16 +179,17 @@ function createTaskTable(processedTaskList) {
         priorityCell.innerHTML = task.priority;
         row.appendChild(priorityCell);
 
-        let doneCol = document.createElement("td");
-        
+        //for done col
+        let doneCell = document.createElement("td"); 
         let doneCheckbox = document.createElement("input");
         doneCheckbox.type = "checkbox";
-        doneCheckbox.addEventListener("click", function(){
+        doneCheckbox.checked = task.taskDone;
+        doneCheckbox.addEventListener("change", function(){
             task.done = this.checked;
         });
 
-        doneCol.appendChild(doneCheckbox);
-        row.appendChild(doneCol)
+        doneCell.appendChild(doneCheckbox);
+        row.appendChild(doneCell);
 
         table.appendChild(row);
     });
