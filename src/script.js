@@ -152,6 +152,11 @@ function createTaskTable(processedTaskList) {
     priorityHeader.innerHTML = "Priority";
     headerRow.appendChild(priorityHeader);
 
+    //for header of done col
+    let doneHeader = document.createElement("th");
+    doneHeader.innerHTML = "Done";
+    headerRow.appendChild(doneHeader);
+
 
     table.appendChild(headerRow);
 
@@ -174,6 +179,16 @@ function createTaskTable(processedTaskList) {
         priorityCell.innerHTML = task.priority;
         row.appendChild(priorityCell);
 
+        let doneCol = document.createElement("td");
+        
+        let doneCheckbox = document.createElement("input");
+        doneCheckbox.type = "checkbox";
+        doneCheckbox.addEventListener("click", function(){
+            task.done = this.checked;
+        });
+
+        doneCol.appendChild(doneCheckbox);
+        row.appendChild(doneCol)
 
         table.appendChild(row);
     });
