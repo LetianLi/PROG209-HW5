@@ -44,12 +44,15 @@ input,
     text-align: left;
     background-color: #4a4b3b;
     padding: 5px;
-    padding-right: 50px;
 }
 
 /* Style the table rows */
 #table tr {
     border-bottom: 1px solid #ddd;
+}
+
+#table td {
+    padding-right: 25px;
 }
 
 #alert_message {
