@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     document.getElementById("getStartedBtn").addEventListener("click", goToAddPage);
     document.getElementById("getStartedBtn2").addEventListener("click", goToAddPage);
     document.getElementById("addTaskBtn").addEventListener("click", createArrayObj);
+    document.getElementById("deleteDoneTasksBtn").addEventListener("click", deleteDoneTasks);
 
     // regenerate table whenever sort/filter settings change
     let regenDisplayElements = Array.from(document.getElementsByClassName("regenDisplay"));
@@ -71,16 +72,23 @@ function createArrayObj() {
     }
 }
 
+function deleteDoneTasks() {
+    tasks = tasks.filter(task => !task.done);
+    displayTasks();
+}
+
 function displayTasks() {
     if (tasks.length > 0) {
-        // create table and hide button
+        // create table, hide get started button, show delete done task button
         let processedTaskList = processTaskList();
         createTaskTable(processedTaskList);
         document.getElementById("getStartedBtn2").style = "display: none";
+        document.getElementById("deleteDoneTasksBtn").style = "display: block";
     } else {
-        // replace table with empty message and show button
+        // replace table with empty message, show get started button, hide delete done task button
         document.getElementById("table").innerHTML = "Uh oh, you don't have anything in your task list yet. Try adding one";
         document.getElementById("getStartedBtn2").style = "display: block";
+        document.getElementById("deleteDoneTasksBtn").style = "display: none";
     }
 }
 
