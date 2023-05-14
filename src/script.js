@@ -7,18 +7,9 @@ let Task = function(taskName, taskType, taskPriority) {
     this.done = false;
     this.timeAdded = Date.now();
 
-    // priorityValue is used for sorting
-    switch (this.priority) {
-        case "High":
-            this.priorityValue = 1;
-            break;
-        case "Medium":
-            this.priorityValue = 2;
-            break;
-        default:
-            this.priorityValue = 3;
-            break;
-    }
+    if (this.priority === "High") this.priorityNumber = 1;
+    else if (this.priority === "Medium") this.priorityNumber = 2;
+    else this.priorityNumber = 3;
 }
 
 // prepush tasks
@@ -63,19 +54,19 @@ function createArrayObj() {
     } else {
         document.getElementById("alert_message").innerHTML = "";
         
-        // push to task array
+        //push to task array
         let task = new Task(taskName, taskType, taskPriority);
         tasks.push(task);
 
-        // display success message
+        /*displays task added successfully so I know it actually
+        ran the function and added to the array properly.*/
         let successMessage = document.getElementById("successMessage");
         successMessage.innerHTML = "Task added successfully!";
-        // timeout sucess message (2.0 seconds)
+        //timeout for sucess message (2.0 seconds)
         setTimeout(() => {
             successMessage.innerHTML = '';  
         }, 2000);
 
-        // empty name box and put focus in name box
         taskNameInput.value = "";
         taskNameInput.focus();
     }
@@ -107,7 +98,6 @@ function processTaskList() {
     let allowedPriorities = Array.from(document.getElementsByClassName("filterPrioritySetting")).filter(checkbox => checkbox.checked).map(checkedBoxes => checkedBoxes.value);
     
     let filteredTasks = tasks.filter(task => {
-        // pass checks if nothing in allowed or task is in allowed
         let passesTypeCheck = allowedTypes.length === 0 || allowedTypes.includes(task.type);
         let passesPriorityCheck = allowedPriorities.length === 0 || allowedPriorities.includes(task.priority);
 
@@ -123,14 +113,12 @@ function processTaskList() {
         let propB = taskB[sortProperty];
         
         let sortValue;
-        // compare differently for strings and numbers
         if (typeof propA === "string") {
             sortValue = propA.localeCompare(propB);
         } else if (typeof propA === "number") {
             sortValue = propA - propB;
         }
 
-        // flip sign if descending
         if (sortAscending) {
             return sortValue;
         } else {
@@ -144,57 +132,54 @@ function processTaskList() {
 function createTaskTable(processedTaskList) {
     let table = document.getElementById("table");
 
-    // clear table
+    //Start by clearing the table
     table.innerHTML = "";
 
-    // create header row
-    let headerRow = document.createElement("tr"); // tr = table row
+    //For creating the header rows
+    let headerRow = document.createElement("tr"); //table row
 
-    // name header col
-    let nameHeader = document.createElement("th"); // th = table header
+    //for header of name col
+    let nameHeader = document.createElement("th"); //table header
     nameHeader.innerHTML = "Name";
     headerRow.appendChild(nameHeader);
 
-    // type header col
+    //for header of type col
     let typeHeader = document.createElement("th");
     typeHeader.innerHTML = "Type";
     headerRow.appendChild(typeHeader);
 
-    // priority header col
+    //for header of priority col
     let priorityHeader = document.createElement("th");
     priorityHeader.innerHTML = "Priority";
     headerRow.appendChild(priorityHeader);
 
-    // done header col
+    //for header of done col
     let doneHeader = document.createElement("th");
     doneHeader.innerHTML = "Done";
     headerRow.appendChild(doneHeader);
 
-    // append header row into table
     table.appendChild(headerRow);
 
-
-    // set up rows for every task
+    //setting up rows for each task item in array
     processedTaskList.forEach(task => {
-        // create task row
         let row = document.createElement("tr");
 
-        // task name col
-        let nameCell = document.createElement("td"); // td = table data
+        //for name col
+        let nameCell = document.createElement("td");
         nameCell.innerHTML = task.name;
         row.appendChild(nameCell);
 
-        // task type col
+        //for type col
         let typeCell = document.createElement("td");
         typeCell.innerHTML = task.type;
         row.appendChild(typeCell);
 
-        // task priority col
+        //for priority col
         let priorityCell = document.createElement("td");
         priorityCell.innerHTML = task.priority;
         row.appendChild(priorityCell);
 
-        // task done col and checkbox
+        //for done col
         let doneCell = document.createElement("td"); 
         let doneCheckbox = document.createElement("input");
         doneCheckbox.type = "checkbox";
@@ -202,10 +187,10 @@ function createTaskTable(processedTaskList) {
         doneCheckbox.addEventListener("change", function(){
             task.done = this.checked;
         });
+
         doneCell.appendChild(doneCheckbox);
         row.appendChild(doneCell);
 
-        // append task row into table
         table.appendChild(row);
     });
 }
